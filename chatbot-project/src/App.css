@@ -1,0 +1,23 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full view height  */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .chat-container {
+    max-width: 100%;
+    box-shadow: none;
+  }
+}
+
+.welcome-message {
+  color: rgb(120, 120, 120);
+  text-align: center;
+}
