@@ -1,16 +1,17 @@
 import "./HomePage.css";
 import Header from "../../components/Header";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
-import { products } from "../../../start-code/data/products";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 export default function HomePage() {
-  fetch("http://localhost:3000/api/products/")
-  .then((response) => {
-    if (response.ok === true) {
-      return response.json();
-    }
-  }).then((data) => {
-    console.log(data)
-  });
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/products/").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
+
   return (
     <>
       <title>Home Page</title>
