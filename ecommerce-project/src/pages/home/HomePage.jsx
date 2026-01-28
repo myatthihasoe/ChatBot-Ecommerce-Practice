@@ -3,6 +3,14 @@ import Header from "../../components/Header";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
 import { products } from "../../../start-code/data/products";
 export default function HomePage() {
+  fetch("http://localhost:3000/api/products/")
+  .then((response) => {
+    if (response.ok === true) {
+      return response.json();
+    }
+  }).then((data) => {
+    console.log(data)
+  });
   return (
     <>
       <title>Home Page</title>
@@ -30,7 +38,9 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="product-price">${(product.priceCents / 100).toFixed(2)}</div>
+                <div className="product-price">
+                  ${(product.priceCents / 100).toFixed(2)}
+                </div>
 
                 <div className="product-quantity-container">
                   <select>
