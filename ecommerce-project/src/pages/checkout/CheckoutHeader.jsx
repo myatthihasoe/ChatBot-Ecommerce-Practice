@@ -4,7 +4,7 @@ import Logo from "../../assets/images/logo.png";
 import MobileLogo from "../../assets/images/mobile-logo.png"
 import CheckoutLock from "../../assets/images/icons/checkout-lock-icon.png"
 
-export default function CheckoutHeader() {
+export default function CheckoutHeader({carts}) {
   return (
     <div className="checkout-header">
       <div className="header-content">
@@ -18,7 +18,7 @@ export default function CheckoutHeader() {
         <div className="checkout-header-middle-section">
           Checkout (
           <Link className="return-to-home-link" to="/">
-            3 items
+          {carts.length} items
           </Link>
           )
         </div>
