@@ -5,9 +5,14 @@ import { formatMoney } from "../../utils/money";
 export default function ProductGrids() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    axios.get("/api/products/").then((response) => {
+    // axios.get("/api/products/").then((response) => {
+    //   setProducts(response.data);
+    // });
+    const fetchProducts = async () => {
+      const response = await axios.get("/api/products/");
       setProducts(response.data);
-    });
+    };
+    fetchProducts();
   }, []);
   return (
     <div className="products-grid">

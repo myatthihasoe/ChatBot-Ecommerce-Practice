@@ -10,9 +10,14 @@ import { formatMoney } from "../../utils/money";
 export default function OrdersPage({ carts }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      setOrders(response.data);
-    });
+    // axios.get("/api/orders?expand=products").then((response) => {
+    //   setOrders(response.data);
+    // });
+    const fetchOrder = async () => {
+      const response = axios.get("/api/orders?expand=products");
+      setOrders((await response).data);
+    };
+    fetchOrder();
   }, []);
   return (
     <>

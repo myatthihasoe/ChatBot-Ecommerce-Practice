@@ -10,9 +10,14 @@ import NotFound from "./pages/notfound/NotFoundPage";
 function App() {
   const [carts, setCarts] = useState([]);
   useEffect(() => {
-    axios.get("/api/cart-items?expand=product").then((response) => {
+    // axios.get("/api/cart-items?expand=product").then((response) => {
+    //   setCarts(response.data);
+    // });
+    const fetchCart = async () => {
+      let response = await axios.get("/api/cart-items?expand=product");
       setCarts(response.data);
-    });
+    };
+    fetchCart();
   }, []);
   return (
     <>
