@@ -13,7 +13,7 @@ function App() {
     axios.get("/api/cart-items?expand=product").then((response) => {
       setCarts(response.data);
     });
-  });
+  }, []);
   return (
     <>
       <Routes>
@@ -23,7 +23,7 @@ function App() {
           path="/checkout"
           element={<CheckoutPage carts={carts} setCarts={setCarts} />}
         />
-        <Route path="/orders" element={<OrdersPage carts={carts}/>} />
+        <Route path="/orders" element={<OrdersPage carts={carts} />} />
         <Route path="/tracking" element={<TrackingPage carts={carts} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
