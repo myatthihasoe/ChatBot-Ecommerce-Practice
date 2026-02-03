@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 import OrderSummary from "./OrderSummary";
 import PaymentSummary from "./PaymentSummary";
 
-export default function CheckoutPage({ carts }) {
+export default function CheckoutPage({ carts, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
 
   useEffect(() => {
     const fetchDeliveryOption = async () => {
-      const response = await axios.get("/api/delivery-options?expand=products");
+      const response = await axios.get(
+        "/api/delivery-options?expand=estimatedDeliveryTime",
+      );
       setDeliveryOptions(response.data);
     };
     fetchDeliveryOption();
@@ -24,8 +26,12 @@ export default function CheckoutPage({ carts }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <OrderSummary deliveryOptions={deliveryOptions} carts={carts} />
-          <PaymentSummary />
+          <OrderSummary
+            deliveryOptions={deliveryOptions}
+            carts={carts}
+            loadCart={loadCart}
+          />
+          <PaymentSummary carts={carts} />
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@ import DeliveryOption from "./DeliveryOption";
 import CartItemDetail from "./CartItemDetail";
 import DeliveryDate from "./DeliveryDate";
 
-export default function OrderSummary({ deliveryOptions, carts }) {
+export default function OrderSummary({ deliveryOptions, carts, loadCart }) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -13,13 +13,18 @@ export default function OrderSummary({ deliveryOptions, carts }) {
               return deliveryOption.id === cartItem.deliveryOptionId;
             },
           );
+
           return (
             <div key={cartItem.id} className="cart-item-container">
               <DeliveryDate selectedDeliveryOptions={selectedDeliveryOptions} />
 
               <div className="cart-item-details-grid">
                 <CartItemDetail cartItem={cartItem} formatMoney={formatMoney} />
-                <DeliveryOption cartItem={cartItem} deliveryOptions={deliveryOptions} />
+                <DeliveryOption
+                  cartItem={cartItem}
+                  deliveryOptions={deliveryOptions}
+                  loadCart={loadCart}
+                />
               </div>
             </div>
           );

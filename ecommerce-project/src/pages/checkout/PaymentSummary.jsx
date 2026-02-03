@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { formatMoney } from "../../utils/money";
 import axios from "axios";
 
-export default function PaymentSummary() {
+export default function PaymentSummary({carts}) {
   const [paymentSummary, setPaymentSummary] = useState(null);
   useEffect(() => {
     const fetchPayment = async () => {
@@ -10,7 +10,7 @@ export default function PaymentSummary() {
       setPaymentSummary(response.data);
     };
     fetchPayment();
-  }, []);
+  }, [carts]);
 
   return (
     <div className="payment-summary">

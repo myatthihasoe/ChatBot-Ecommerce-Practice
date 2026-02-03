@@ -22,7 +22,7 @@ function App() {
         <Route index element={<HomePage carts={carts} setCarts={setCarts} loadCart={loadCart} />} /> index = path = "/"
         <Route
           path="/checkout"
-          element={<CheckoutPage carts={carts} setCarts={setCarts} />}
+          element={<CheckoutPage carts={carts} setCarts={setCarts} loadCart={loadCart}/>}
         />
         <Route path="/orders" element={<OrdersPage carts={carts} />} />
         <Route
