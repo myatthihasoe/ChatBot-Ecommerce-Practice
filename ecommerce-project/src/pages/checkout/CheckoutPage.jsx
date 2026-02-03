@@ -31,7 +31,7 @@ export default function CheckoutPage({ carts, loadCart }) {
             carts={carts}
             loadCart={loadCart}
           />
-          <PaymentSummary carts={carts} />
+          <PaymentSummary carts={carts} loadCart={loadCart} />
         </div>
       </div>
     </>

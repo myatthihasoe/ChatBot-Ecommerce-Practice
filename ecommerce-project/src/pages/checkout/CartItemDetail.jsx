@@ -1,4 +1,4 @@
-export default function CartItemDetail({ cartItem, formatMoney }) {
+export default function CartItemDetail({ cartItem, formatMoney, deleteItem }) {
   return (
     <>
       <img className="product-image" src={cartItem.product.image} />
@@ -13,7 +13,12 @@ export default function CartItemDetail({ cartItem, formatMoney }) {
             <span className="quantity-label">{cartItem.quantity}</span>
           </span>
           <span className="update-quantity-link link-primary">Update</span>
-          <span className="delete-quantity-link link-primary">Delete</span>
+          <span
+            className="delete-quantity-link link-primary"
+            onClick={deleteItem}
+          >
+            Delete
+          </span>
         </div>
       </div>
     </>
