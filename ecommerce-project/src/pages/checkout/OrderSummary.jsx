@@ -27,6 +27,7 @@ export default function OrderSummary({ deliveryOptions, carts, loadCart }) {
                   cartItem={cartItem}
                   formatMoney={formatMoney}
                   deleteItem={deleteItem}
+                  loadCart={loadCart}
                 />
                 <DeliveryOption
                   cartItem={cartItem}

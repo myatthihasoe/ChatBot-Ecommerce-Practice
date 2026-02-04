@@ -6,7 +6,7 @@ import axios from "axios";
 
 import OrderGrids from "./OrderGrids";
 
-export default function OrdersPage({ carts }) {
+export default function OrdersPage({ carts, loadCart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const fetchOrder = async () => {
@@ -22,7 +22,7 @@ export default function OrdersPage({ carts }) {
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
-        <OrderGrids orders={orders} />
+        <OrderGrids orders={orders} loadCart={loadCart}/>
       </div>
     </>
   );

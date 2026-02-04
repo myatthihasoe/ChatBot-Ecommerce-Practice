@@ -7,6 +7,7 @@ import CheckoutPage from "./pages/checkout/CheckoutPage";
 import OrdersPage from "./pages/order/OrdersPage";
 import TrackingPage from "./pages/tracking/TrackingPage";
 import NotFoundPage from "./pages/notfound/NotFoundPage";
+window.axios = axios;
 function App() {
   const [carts, setCarts] = useState([]);
   const loadCart = async () => {
@@ -24,7 +25,7 @@ function App() {
           path="/checkout"
           element={<CheckoutPage carts={carts} setCarts={setCarts} loadCart={loadCart}/>}
         />
-        <Route path="/orders" element={<OrdersPage carts={carts} />} />
+        <Route path="/orders" element={<OrdersPage carts={carts} loadCart={loadCart} />} />
         <Route
           path="/tracking/:orderId/:productId"
           element={<TrackingPage carts={carts} />}
