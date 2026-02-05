@@ -1,6 +1,8 @@
 import { it, expect, describe } from "vitest";
 import { formatMoney } from "./money";
-
+//it create a test 
+//expect check the result is correct
+//describe group tests together
 describe("formatMoney", () => {
   it("formats 8080 cents to $80.80 correctly", () => {
     expect(formatMoney(8080)).toBe("$80.80");
