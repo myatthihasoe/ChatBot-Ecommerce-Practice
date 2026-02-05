@@ -27,7 +27,11 @@ export default function Product({ product, loadCart }) {
   return (
     <div key={product.id} className="product-container">
       <div className="product-image-container">
-        <img className="product-image" data-testId="product-image" src={product.image} />
+        <img
+          className="product-image"
+          data-testId="product-image"
+          src={product.image}
+        />
       </div>
 
       <div className="product-name limit-text-to-2-lines">{product.name}</div>
